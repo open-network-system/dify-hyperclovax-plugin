@@ -1,0 +1,49 @@
+# Basic provider identification
+provider: hyperclovax # Provider ID (must be unique)
+label:
+  en_US: hyperclovax # Display name in UI
+description:
+  en_US: hyperclovax models.
+icon_small:
+  en_US: icon.svg # Small icon for provider (displayed in selection UI)
+icon_large:
+  en_US: icon.svg # Large icon (displayed in detail views)
+background: "#F0F0EB" # Background color for provider in UI
+
+# Help information for users
+help:
+  title:
+    en_US: Get your API Key from hyperclovax
+  url:
+    en_US: https://naver.com
+
+# Supported model types and configuration approach
+supported_model_types:
+  - llm # This provider offers LLM models
+configurate_methods:
+  - predefined-model # Uses predefined models approach
+
+# Provider-level credential form definition
+provider_credential_schema:
+  credential_form_schemas:
+    - variable: api_key # Variable name for API key
+      label:
+        en_US: API Key...
+      type: secret-input # Secure input for sensitive data
+      required: true
+      placeholder:
+        en_US: Enter your API Key
+
+# Model configuration
+models:
+  llm: # Configuration for LLM type models
+    predefined:
+      - "models/llm/*.yaml" # Pattern to locate model configuration files
+    position: "models/llm/_position.yaml" # File defining display order
+
+# Implementation file locations
+extra:
+  python:
+    provider_source: provider/hyperclovax.py # Provider class implementation
+    model_sources:
+      - "models/llm/llm.py" # Model implementation file

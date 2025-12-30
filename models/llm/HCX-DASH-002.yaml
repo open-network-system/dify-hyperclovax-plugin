@@ -1,0 +1,38 @@
+model: HCX-DASH-002
+label:
+  en_US: HyperCLOVA X (HCX-DASH-002)
+  ko_KR: HyperCLOVA X (HCX-DASH-002)
+model_type: llm
+features:
+  - tool-call
+  - stream-tool-call
+model_properties:
+  mode: chat
+  context_size: 32000
+parameter_rules:
+  - name: max_completion_tokens
+    label:
+      en_US: Max Completion Tokens
+      ko_KR: 최대 응답 토큰
+    type: int
+    default: 4096
+    min: 1
+    max: 512
+    required: true
+    help:
+      en_US: "Max Completion Tokens"
+  - name: temperature
+    use_template: temperature
+    default: 1.0
+    min: 0.0
+    max: 2.0
+    help:
+      en_US: "For reasoning models like HCX-007, higher values can increase diversity."
+  - name: top_p
+    use_template: top_p
+    default: 1.0
+pricing:
+  input: "0.25"
+  output: "1.00"
+  unit: "0.001"
+  currency: KRW

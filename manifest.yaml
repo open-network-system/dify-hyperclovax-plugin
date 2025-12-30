@@ -1,0 +1,43 @@
+version: 0.0.1
+type: plugin
+author: opennetworksystem
+name: hyperclovax
+label:
+  en_US: hyperclovax
+  ja_JP: hyperclovax
+  zh_Hans: hyperclovax
+  pt_BR: hyperclovax
+description:
+  en_US: naver hyperclovax
+  ja_JP: naver hyperclovax
+  zh_Hans: naver hyperclovax
+  pt_BR: naver hyperclovax
+icon: icon.svg
+icon_dark: icon-dark.svg
+resource:
+  memory: 268435456
+  permission:
+    model:
+      enabled: true
+      llm: true
+      text_embedding: true
+      rerank: true
+      tts: false
+      speech2text: false
+      moderation: false
+plugins:
+  models:
+    - provider/hyperclovax.yaml
+meta:
+  version: 0.0.1
+  arch:
+    - amd64
+    - arm64
+  runner:
+    language: python
+    version: "3.12"
+    entrypoint: main
+  minimum_dify_version: null
+created_at: 2025-12-30T11:07:06.814828+09:00
+privacy: PRIVACY.md
+verified: false
