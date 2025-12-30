@@ -1,12 +1,13 @@
-model: HCX-007
+model: HCX-005
 label:
-  en_US: HCX-007
-  ko_KR: HCX-007
+  en_US: HCX-005
+  ko_KR: HCX-005
 model_type: llm
 features:
   - agent-thought
   - tool-call
   - stream-tool-call
+  - vision
 model_properties:
   mode: chat
   context_size: 128000
@@ -18,30 +19,20 @@ parameter_rules:
     type: int
     default: 4096
     min: 1
-    max: 32768
+    max: 4096
     required: true
     help:
-      en_US: "Total limit for both reasoning and visible text tokens."
+      en_US: "Max completion tokens."
   - name: temperature
     use_template: temperature
     default: 1.0
     min: 0.0
     max: 2.0
     help:
-      en_US: "For reasoning models like HCX-007, higher values can increase diversity."
+      en_US: "temperature"
   - name: top_p
     use_template: top_p
     default: 1.0
-  - name: response_format
-    label:
-      en_US: Response Format
-    type: string
-    options:
-      - text
-      - json_object
-    default: text
-    help:
-      en_US: "Set to 'json_object' to enable structured outputs. (Incompatible with streaming tools in some contexts)"
 pricing:
   input: "1.25"
   output: "5.00"
